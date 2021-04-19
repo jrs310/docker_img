@@ -20,5 +20,3 @@ RUN apt update -y \
 
 # Add dedicated  user
 RUN useradd -m -d /srv sanchez
-
-
