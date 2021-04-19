@@ -1,6 +1,3 @@
-
-
-
 FROM ubuntu:20.04
 
 LABEL maintainer="Jose Sanchez" \
