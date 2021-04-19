@@ -1,19 +1,32 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 LABEL maintainer="Jose Sanchez" \
       name="main_container" \
       version="1.0"
 
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install packages
 RUN apt update -y \
     && apt upgrade -y  \
-    && apt install -y python3.8 \
+    && apt-get install -y python3-pip python3-dev \
+    && cd /usr/local/bin \
+    && ln -s /usr/bin/python3 python \
+    && pip3 --no-cache-dir install --upgrade pip \
     && apt-get install nano \
+    && apt -y install git-all\
     && apt-get -y install curl \
     && apt-get clean autoclean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
-# Add dedicated  user
-RUN useradd -m -d /srv sanchez
+
+
+RUN useradd --create-home --shell /bin/bash tso
+WORKDIR /home/tso
+
+
+ENTRYPOINT ["python3"]
+
+
+
