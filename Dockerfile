@@ -9,7 +9,7 @@ LABEL maintainer="Jose Sanchez" \
 RUN apt update -y \
     && apt upgrade -y  \
     && apt install -y python3.8 \
-    && apt install -y install nano \
+    && apt-get install nano \
     && apt-get -y install curl \
     && apt-get clean autoclean \
     && apt-get autoremove -y \
