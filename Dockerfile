@@ -23,6 +23,7 @@ RUN apt update -y \
 
 
 RUN useradd --create-home --shell /bin/bash tso
+USER tso
 WORKDIR /home/tso
 
 
