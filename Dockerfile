@@ -14,13 +14,17 @@ RUN apt update -y \
     && ln -s /usr/bin/python3 python \
     && pip3 --no-cache-dir install --upgrade pip \
     && apt-get install nano \
-    && pip install requests \
-    && pip install json \
     && apt -y install git-all\
     && apt-get -y install curl \
     && apt-get clean autoclean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
+
+RUN python -m pip install \
+        pip install requests\
+        pip install jsons \
+        parse \
+        realpython-reader
 
 
 
