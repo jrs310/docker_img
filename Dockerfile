@@ -14,10 +14,13 @@ RUN apt update -y \
     && ln -s /usr/bin/python3 python \
     && pip3 --no-cache-dir install --upgrade pip \
     && apt-get -y install nano \
-    && apt-get -y install python3-venv\
     && apt-get install -y virtualenv\
     && apt -y install git-all\
     && apt-get -y install curl \
+    && apt install python3 -y \
+    && apt install python3-pip -y \
+    && apt-get -y install python3-venv\
+    && python3 -m venv venv\
     && apt-get clean autoclean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
@@ -29,7 +32,6 @@ USER tso
 WORKDIR /home/tso
 
 
-ENTRYPOINT ["python3"]
-
+ENTRYPOINT bin/bash
 
 
