@@ -13,8 +13,8 @@ RUN apt update -y \
     && cd /usr/local/bin \
     && ln -s /usr/bin/python3 python \
     && pip3 --no-cache-dir install --upgrade pip \
-    && apt-get install nano \
-    && apt-get install python3-venv\
+    && apt-get -y install nano \
+    && apt-get -y install python3-venv\
     && apt -y install git-all\
     && apt-get -y install curl \
     && apt-get clean autoclean \
