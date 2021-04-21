@@ -33,4 +33,4 @@ USER tso
 WORKDIR /home/tso 
 
 
-ENTRYPOINT ["python3"]
+CMD ["/python,"./main/main.py"]
