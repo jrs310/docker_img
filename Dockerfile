@@ -9,16 +9,15 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install packages
 RUN apt update -y \
     && apt upgrade -y  \
+    && apt-get install -y python3-pip python3-dev \
     && cd /usr/local/bin \
+    && ln -s /usr/bin/python3 python \
     && pip3 --no-cache-dir install --upgrade pip \
-    && apt-get -y install nano \
-    && apt-get install -y virtualenv\
+    && apt-get install nano \
+    && pip install requests \
+    && pip install json \
     && apt -y install git-all\
     && apt-get -y install curl \
-    && apt install python3 -y \
-    && apt install python3-pip -y \
-    && apt-get -y install python3-venv\
-    && python3 -m venv venv\
     && apt-get clean autoclean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
@@ -27,9 +26,7 @@ RUN apt update -y \
 
 RUN useradd --create-home --shell /bin/bash tso
 USER tso
-WORKDIR /home/tso
+WORKDIR /home/tso 
 
 
-ENTRYPOINT bin/bash
-
-
+ENTRYPOINT ["python3"]
