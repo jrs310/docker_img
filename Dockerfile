@@ -15,6 +15,7 @@ RUN apt update -y \
     && pip3 --no-cache-dir install --upgrade pip \
     && apt-get -y install nano \
     && apt-get -y install python3-venv\
+    && apt-get install -y virtualenv\
     && apt -y install git-all\
     && apt-get -y install curl \
     && apt-get clean autoclean \
