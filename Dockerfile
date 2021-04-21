@@ -9,9 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install packages
 RUN apt update -y \
     && apt upgrade -y  \
-    && apt-get install -y python3-pip python3-dev \
     && cd /usr/local/bin \
-    && ln -s /usr/bin/python3 python \
     && pip3 --no-cache-dir install --upgrade pip \
     && apt-get -y install nano \
     && apt-get install -y virtualenv\
