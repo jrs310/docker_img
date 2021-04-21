@@ -33,4 +33,4 @@ USER tso
 WORKDIR /home/tso 
 
 
-CMD ["/python,"./main/main.py"]
+CMD ["python,"./main/main.py"]
