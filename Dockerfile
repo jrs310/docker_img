@@ -32,6 +32,6 @@ RUN useradd --create-home --shell /bin/bash tso
 USER tso
 WORKDIR /home/tso 
 
-CMD [ "echo","hello world"]
+CMD ["pwd"]
 
 
